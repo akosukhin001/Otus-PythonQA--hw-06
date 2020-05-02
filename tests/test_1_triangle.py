@@ -1,4 +1,5 @@
 from source.my_classes import *
+import pytest
 
 a = Triangle(5, 7, 10)
 
@@ -25,15 +26,16 @@ def test_5_add_square():
 
 
 def test_6_incorrect_input_1():
-    c = Triangle(5, 5, 10)
-    assert None
+    with pytest.raises(AttributeError):
+        assert Triangle(5, 5, 10)
 
 
 def test_7_incorrect_input_2():
-    c = Triangle(5, 7, '10')
-    assert None
+    with pytest.raises(AttributeError):
+        assert Triangle(5, 7, '10')
 
 
 def test_8_incorrect_input_3():
-    b = GeometrFigure()
-    assert a.add_square(b) == None
+    with pytest.raises(AttributeError):
+        b = GeometrFigure()
+        assert a.add_square(b)

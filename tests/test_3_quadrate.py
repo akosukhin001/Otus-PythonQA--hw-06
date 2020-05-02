@@ -1,4 +1,5 @@
 from source.my_classes import *
+import pytest
 
 a = Quadrate(8)
 
@@ -25,10 +26,11 @@ def test_5_add_square():
 
 
 def test_6_incorrect_input_1():
-    c = Quadrate('6')
-    assert None
+    with pytest.raises(AttributeError):
+        assert Quadrate('6')
 
 
 def test_7_incorrect_input_2():
-    b = GeometrFigure()
-    assert a.add_square(b) == None
+    with pytest.raises(AttributeError):
+        b = GeometrFigure()
+        assert a.add_square(b)
